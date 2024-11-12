@@ -1,0 +1,30 @@
+<div class="container-fluid ">
+  <div class="container-fluid mt-5">
+    <h3 class="text-center">Product details</h3>
+  </div>
+  <div class="m-5 mb" *ngIf="product">
+    <h4>{{product.productName}}</h4>
+  </div>
+
+    <div class="form-control m-5 w-50 bg-body-secondary">
+      <form>
+        <div class="form mt-3">
+          <label for="productId">Product Id</label>
+          <input [(ngModel)]="chgProductId" type="number" [ngModelOptions]="{standalone: true}" class="form-control w-50" id="productId" *ngIf="product" value="{{product.productId}}" >
+        </div>
+        <div class="form mt-3">
+          <label for="cartons">Please enter cartons quantity</label>
+          <br>
+          <span *ngIf="product">(One carton has {{product.unitsPerCarton}} units)</span>
+          <input [(ngModel)]="cartonQuantity"  [ngModelOptions]="{standalone: true}" type="number" class="form-control w-50" id="cartons" >
+        </div>
+        <div class="form mt-3">
+          <label for="singleUnits">Please enter unite quantity</label>
+          <input [(ngModel)]="uniteQuantity" [ngModelOptions]="{standalone: true}" type="number" class="form-control w-50" id="singleUnits">
+        </div>
+        <div class="mt-3 text-danger" *ngIf="TotalPrice">Total Price : {{TotalPrice}} </div>
+        <button type="submit" class="btn btn-primary" (click)="totalPrice()">Calculate</button>
+        <button  class="btn btn-danger m-2" (click)="cancel()">Cancel</button>
+      </form>
+    </div>
+</div>

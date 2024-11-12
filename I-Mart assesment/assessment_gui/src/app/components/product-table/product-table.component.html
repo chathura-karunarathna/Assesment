@@ -1,0 +1,29 @@
+<div class="container-fluid ">
+  <div class="container-fluid mt-5">
+  <h3 class="text-center">Products details</h3>
+  </div>
+  <div class="m-5">
+    <table class="table table-striped">
+      <thead>
+        <tr class="text-center">
+          <th>Product Id</th>
+          <th>Product Name</th>
+          <th>Carton Price</th>
+          <th>Unites per carton</th>
+          <th>Select Product</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let product of products">
+      <tr class="text-center">
+        <td>{{product.productId}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.pricePerCarton}}</td>
+        <td>{{product.unitsPerCarton}}</td>
+        <td><button class="btn btn-primary" (click)="priceCalculate(product.productId)"> Select</button> </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
